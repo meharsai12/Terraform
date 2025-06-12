@@ -12,7 +12,7 @@ variable "instance_type" {
 
 variable "sg_id" {
 
-    default = "[ aws_security_group.allow.id ]"
+    default = [" aws_security_group.allow.id "]
 
   
 }

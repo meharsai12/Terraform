@@ -1,7 +1,7 @@
 resource "aws_instance" "roboshop" {
-  ami           = "image_id"
-  instance_type = "instance_type"
-  vpc_security_group_ids = "sg_id"
+  ami           = var.image_id
+  instance_type = var.instance_type
+  vpc_security_group_ids = var.sg_id
   
   tags = {
     Name = "HelloWorld"
