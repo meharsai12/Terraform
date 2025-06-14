@@ -10,9 +10,43 @@ variable "instance_type" {
   
 }
 
-variable "sg_id" {
+variable "ec2_tags" {
+    default = {
+    Name = "terraform"
+    purpose = "Using it is for terraform variable-demo"
+  }
+  
+}
 
-    default = [" aws_security_group.allow.id "]
+variable "sg_name" {
+    default = "allow-alltraffic"
+  
+}
 
+variable "sg_desc" {
+    default = "Allowing all trafficfor inbound and outbound"
+  
+}
+
+variable "fromport" {
+    default = 0
+  
+}
+
+variable "toport" {
+    default = 0
+}
+
+variable "cidr-blocks" {
+
+    default =  ["0.0.0.0/0"]
+  
+}
+
+variable "sg_tags" {
+
+    default = {
+        Name = "terraformSg"
+    }
   
 }
