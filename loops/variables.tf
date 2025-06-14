@@ -10,7 +10,7 @@ variable "instance_type" {
 
 variable "ec2_tags" {
     default =  {
-    Name = "Terraform variables"
+    Name = "Terraform loops"
     purpose = "It is using for ec2 instance"
   }
   
@@ -50,5 +50,18 @@ variable "sg_tags" {
         Name = "allow-all"
         purpose = "all ports open it is used for all the ports open for ths sg group"
     }
+  
+}
+
+
+variable "environment" {
+
+    default = "dev"
+  
+}
+
+variable "instances" {
+
+    default = ["mongodb", "redis" , "frontend" , "rabbitmq"]
   
 }
