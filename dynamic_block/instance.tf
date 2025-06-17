@@ -13,11 +13,11 @@ resource "aws_security_group" "allow_all" {
     name        = var.sg_name
     description = var.sg_desc
     
-    dynamic "ingress" {
-      for_each = var.ingress_block
+    dynamic "ingress" {   # dynamic is to start the block
+      for_each = var.ingress_block   # take values from the variables ingress_block
       content {
-        from_port        = ingress.value["from_port"]
-        to_port          = ingress.value["to_port"]
+        from_port        = ingress.value["from_port"]    # ingress.value represents the each element from the variable from_port
+        to_port          = ingress.value["to_port"]    #ingress.value represents the each element from the variable to_port
         protocol         = "-1"
         cidr_blocks      = var.cidr_blocks
         ipv6_cidr_blocks = ["::/0"]
