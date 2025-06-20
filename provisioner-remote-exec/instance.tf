@@ -18,7 +18,7 @@ provisioner "local-exec" {
 connection {
     type     = "ssh"
     user     = "ec2-user"
-    password = DevOps321
+    password = "DevOps321"
     host     = self.public_ip
   }
 
@@ -28,18 +28,9 @@ connection {
       "sudo systemctl start nginx",
     ]
     
-  }
-
-  provisioner "remote-exec" {
-    when =destroy
-    inline = [
-      "sysytemctl stop nginx"
-    ]
-    
-  }
-
- 
   
+  }
+
   tags = var.ec2_tags
 }
 
