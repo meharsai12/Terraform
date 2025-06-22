@@ -2,7 +2,7 @@ module "ec2" {
     count = length(var.instances)
   source = "../terraform-aws-module"
   sg_ids = var.sg_id
-  #instance_type = "t3.mediium"
+  instance_type = "t3.micro"
   ec2_tags = merge(
     var.common_tags,
     {
