@@ -56,7 +56,7 @@ resource "aws_subnet" "private" {
 
 
   tags = merge(
-    var.public_subnet_tags,local.common_tags,
+    var.private_subnet_tags,local.common_tags,
     {
         Name = "${var.project}-${var.environment}-private-${slice(data.aws_availability_zones.available.names, 0 , 2)[count.index]}"
     }
@@ -74,7 +74,7 @@ resource "aws_subnet" "database" {
 
 
   tags = merge(
-    var.public_subnet_tags,local.common_tags,
+    var.database_subnet_tags,local.common_tags,
     {
         Name = "${var.project}-${var.environment}-database-${slice(data.aws_availability_zones.available.names, 0 , 2)[count.index]}"
     }
@@ -119,7 +119,7 @@ resource "aws_route_table" "public" {
   tags = merge(
         var.public_route_table_tags, local.common_tags,
         {
-            Name = "${var.project}- ${var.environment}-public"
+            Name = "${var.project}-${var.environment}-public"
         }
     )
   }
@@ -132,7 +132,7 @@ resource "aws_route_table" "private" {
   tags =  merge(
         var.private_route_table_tags, local.common_tags,
         {
-            Name = "${var.project}- ${var.environment}-private"
+            Name = "${var.project}-${var.environment}-private"
         }
     )
   }
@@ -146,7 +146,7 @@ resource "aws_route_table" "database" {
   tags = merge(
         var.database_route_table_tags, local.common_tags,
         {
-            Name = "${var.project}- ${var.environment}-database"
+            Name = "${var.project}-${var.environment}-database"
         }
     )
   }
