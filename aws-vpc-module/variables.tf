@@ -19,3 +19,39 @@ variable "public_subnet_cidr" {
     
   
 }
+
+variable "private_subnet_cidr" {
+    type = list(string)
+    
+  
+}
+
+
+variable "database_subnet_cidr" {
+    type = list(string)
+    
+  
+}
+
+
+variable "public_subnet_tags" {
+    default = {}
+  
+}
+
+variable "private_subnet_tags" {
+    default = {}
+  
+}
+
+variable "database_subnet_tags" {
+    default = {}
+  
+}
+
+
+
+variable "igw_tags" {
+    default = {}
+  
+}
