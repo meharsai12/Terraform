@@ -1,6 +1,8 @@
 module "aws_vpc_practice" {
 
     source = "../aws-vpc-prac"
+    #source = "git::https://github.com/meharsai12/Terraform.git//aws-vpc-prac?ref=main"
+
     project = "roboshop"
     environment = "dev"
     public_subnet_cidr = ["10.0.1.0/24","10.0.2.0/24"]
@@ -8,6 +10,6 @@ module "aws_vpc_practice" {
     database_subnet_cidr = ["10.0.21.0/24","10.0.22.0/24"]  
 
 
- # is_peering_required = true
+  is_peering_required = true
 
 }
